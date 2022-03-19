@@ -28,19 +28,19 @@ class MainActivity : AppCompatActivity() {
         val tvResultado: TextView = findViewById(R.id.tvResultado)
 
         btSomar.setOnClickListener {
-            tvResultado.text = calcular(btSomar.id,etValor1,etValor2).toString()
+            tvResultado.text = calcular2(btSomar.id,etValor1,etValor2).toString()
         }
 
         btSubtrair.setOnClickListener {
-            tvResultado.text = calcular(btSubtrair.id,etValor1,etValor2).toString()
+            tvResultado.text = calcular2(btSubtrair.id,etValor1,etValor2).toString()
         }
 
         btMultiplicar.setOnClickListener {
-            tvResultado.text = calcular(btMultiplicar.id,etValor1,etValor2).toString()
+            tvResultado.text = calcular2(btMultiplicar.id,etValor1,etValor2).toString()
         }
 
         btDividir.setOnClickListener {
-            tvResultado.text = calcular(btDividir.id,etValor1,etValor2).toString()
+            tvResultado.text = calcular2(btDividir.id,etValor1,etValor2).toString()
         }
     }
 
@@ -52,5 +52,19 @@ class MainActivity : AppCompatActivity() {
         else if (idBotao == btSubtrair.id) return valor1 - valor2
         else if (idBotao == btMultiplicar.id) return valor1 * valor2
         else return valor1 / valor2
+    }
+
+
+    fun calcular2(idBotao: Int, entrada1: EditText, entrada2: EditText): Double {
+        val valor1 = entrada1.text.toString().toDouble()
+        val valor2 = entrada2.text.toString().toDouble()
+
+        when (idBotao) {
+            btSomar.id -> return valor1 + valor2
+            btSubtrair.id -> return valor1 - valor2
+            btMultiplicar.id -> return valor1 * valor2
+            else -> return valor1 / valor2
+        }
+
     }
 }
